@@ -192,7 +192,7 @@ class ElasticSearchCollector(diamond.collector.Collector):
                          result, ['unassigned_shards'])
         self._add_metric(metrics, 'cluster_health.shards.initializing',
                          result, ['initializing_shards'])
-        metrics['%s.cluster_health.status' % result.get('cluster_name')] = self.cluster_status(result.get('status'))
+        metrics['cluster_health.status'] = self.cluster_status(result.get('status'))
 
     def cluster_status(self, status):
         return {
